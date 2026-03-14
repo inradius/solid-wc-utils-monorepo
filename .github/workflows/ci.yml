@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  discover:
+    name: Discover Packages
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.find.outputs.packages }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+
+      - name: Find testable packages
+        id: find
+        run: |
+          # Find all packages with a test script in their package.json
+          packages=$(find packages -name "package.json" -not -path "*/node_modules/*" -exec sh -c '
+            if grep -q "\"test\":" "$1"; then
+              dirname "$1" | sed "s|^packages/||"
+            fi
+          ' _ {} \; | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "packages=$packages" >> $GITHUB_OUTPUT
+
+  test:
+    name: Test
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.discover.outputs.packages) }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build --filter=./packages/${{ matrix.package }}...
+
+      - name: Run Tests
+        run: pnpm test --filter=./packages/${{ matrix.package }}
+
+      - name: Report Coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          working-directory: packages/${{ matrix.package }}
+          name: ${{ matrix.package }}
