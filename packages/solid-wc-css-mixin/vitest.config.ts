@@ -5,7 +5,7 @@ export default mergeConfig(
   baseConfig,
   defineConfig({
     test: {
-      name: '@inradius/solid-wc-hass-mixin',
+      name: '@inradius/solid-wc-css-mixin',
     },
   })
 );
