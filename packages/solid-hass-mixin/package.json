@@ -1,8 +1,13 @@
 {
   "name": "@inradius/solid-wc-hass-mixin",
   "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Solid.js Home Assistant web component mixin.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inradius/solid-wc-utils-monorepo.git",
+    "directory": "packages/solid-wc-hass-mixin"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
