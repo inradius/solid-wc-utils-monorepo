@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-mixin
 
+## 0.0.3
+
+### Patch Changes
+
+- 547690d: Add GitHub Actions release workflow
+
 ## 0.0.2
 
 ### Patch Changes
