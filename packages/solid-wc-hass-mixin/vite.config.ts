@@ -1,6 +1,6 @@
 import { resolve } from 'path';
-import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   build: {
@@ -9,9 +9,11 @@ export default defineConfig({
       fileName: 'index',
       formats: ['es', 'cjs'],
     },
+    minify: 'esbuild',
     rollupOptions: {
       external: ['component-register'],
     },
+    sourcemap: false,
   },
   plugins: [
     dts({
