@@ -1,4 +1,5 @@
 export interface CustomCardEntry {
+  [key: string]: unknown;
   description: string;
   name: string;
   preview?: boolean;
