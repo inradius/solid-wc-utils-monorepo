@@ -1,0 +1,49 @@
+{
+  "name": "@inradius/solid-wc-css-mixin",
+  "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
+  "version": "0.0.1",
+  "description": "A Solid.js CSS web component mixin.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inradius/solid-wc-utils-monorepo.git",
+    "directory": "packages/solid-wc-css-mixin"
+  },
+  "homepage": "https://github.com/inradius/solid-wc-utils-monorepo/tree/main/packages/solid-wc-css-mixin#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@inradius/solid-wc-utils-config": "workspace:*",
+    "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/ui": "^2.1.0",
+    "jsdom": "^28.1.0",
+    "rimraf": "^6.0.0",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^4.0.0",
+    "vitest": "^2.1.0"
+  },
+  "peerDependencies": {
+    "component-register": "^0.8.8"
+  },
+  "license": "MIT"
+}
