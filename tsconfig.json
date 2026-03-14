@@ -1,8 +1,14 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2020"
   },
-  "include": ["*.ts", "*.config.ts"],
-  "exclude": ["node_modules", "dist", "packages"]
+  "include": ["eslint.config.ts", "prettier.config.ts"]
 }

@@ -1,15 +1,14 @@
+import withHomeAssistant from './index';
+import type { LovelaceCardConfig } from './types';
 import type { ComponentType } from 'component-register';
 
-import withHomeAssistant from './index';
-import type { LovelaceCardConfig } from './index';
+type CustomWindow = { customCards: unknown[] } & Window;
 
 interface HomeAssistantElement extends HTMLElement {
   config?: LovelaceCardConfig;
-  setConfig(config: LovelaceCardConfig): void;
   getCardSize(): number;
+  setConfig(config: LovelaceCardConfig): void;
 }
-
-type CustomWindow = Window & { customCards: unknown[] };
 
 describe('withHomeAssistant', () => {
   beforeEach(() => {
@@ -19,9 +18,9 @@ describe('withHomeAssistant', () => {
   it('should return a function that wraps a component', () => {
     const mixin = withHomeAssistant({
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
       },
     });
 
@@ -33,9 +32,9 @@ describe('withHomeAssistant', () => {
 
     const mixin = withHomeAssistant({
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
       },
     });
 
@@ -43,9 +42,9 @@ describe('withHomeAssistant', () => {
 
     expect((window as unknown as CustomWindow).customCards).toHaveLength(1);
     expect((window as unknown as CustomWindow).customCards[0]).toEqual({
-      type: 'test-card',
-      name: 'Test Card',
       description: 'A test card',
+      name: 'Test Card',
+      type: 'test-card',
     });
   });
 
@@ -54,34 +53,39 @@ describe('withHomeAssistant', () => {
 
     const mixin = withHomeAssistant({
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
       },
     });
 
     mixin(TestElement as ComponentType<unknown>);
 
     expect(TestElement.prototype).toHaveProperty('setConfig');
-    expect(typeof (TestElement.prototype as unknown as HomeAssistantElement).setConfig).toBe('function');
+    expect(
+      typeof (TestElement.prototype as unknown as HomeAssistantElement)
+        .setConfig
+    ).toBe('function');
   });
 
   it('should add getCardSize method to prototype', () => {
     class TestElement extends HTMLElement {}
 
     const mixin = withHomeAssistant({
-      customCard: {
-        type: 'test-card',
-        name: 'Test Card',
-        description: 'A test card',
-      },
       cardSize: 5,
+      customCard: {
+        description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
+      },
     });
 
     mixin(TestElement as ComponentType<unknown>);
 
     expect(TestElement.prototype).toHaveProperty('getCardSize');
-    const size = (TestElement.prototype as unknown as HomeAssistantElement).getCardSize();
+    const size = (
+      TestElement.prototype as unknown as HomeAssistantElement
+    ).getCardSize();
     expect(size).toBe(5);
   });
 
@@ -90,15 +94,17 @@ describe('withHomeAssistant', () => {
 
     const mixin = withHomeAssistant({
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
       },
     });
 
     mixin(TestElement as ComponentType<unknown>);
 
-    const size = (TestElement.prototype as unknown as HomeAssistantElement).getCardSize();
+    const size = (
+      TestElement.prototype as unknown as HomeAssistantElement
+    ).getCardSize();
     expect(size).toBe(3);
   });
 
@@ -106,26 +112,28 @@ describe('withHomeAssistant', () => {
     class TestElement extends HTMLElement {}
 
     const mixin = withHomeAssistant({
-      defaultConfig: {
-        name: 'Default Name',
-        layout: 'vertical',
-      },
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
+      },
+      defaultConfig: {
+        layout: 'vertical',
+        name: 'Default Name',
       },
     });
 
     mixin(TestElement as ComponentType<unknown>);
 
     customElements.define('test-merge-config', TestElement);
-    const instance = document.createElement('test-merge-config') as unknown as HomeAssistantElement;
-    instance.setConfig({ type: 'test-card', name: 'Custom Name' });
+    const instance = document.createElement(
+      'test-merge-config'
+    ) as unknown as HomeAssistantElement;
+    instance.setConfig({ name: 'Custom Name', type: 'test-card' });
 
     expect(instance.config).toEqual({
-      name: 'Custom Name',
       layout: 'vertical',
+      name: 'Custom Name',
       type: 'test-card',
     });
   });
@@ -135,17 +143,21 @@ describe('withHomeAssistant', () => {
 
     const mixin = withHomeAssistant({
       customCard: {
-        type: 'test-card',
-        name: 'Test Card',
         description: 'A test card',
+        name: 'Test Card',
+        type: 'test-card',
       },
     });
 
     mixin(TestElement as ComponentType<unknown>);
 
     customElements.define('test-throw-error', TestElement);
-    const instance = document.createElement('test-throw-error') as unknown as HomeAssistantElement;
+    const instance = document.createElement(
+      'test-throw-error'
+    ) as unknown as HomeAssistantElement;
 
-    expect(() => instance.setConfig(null as unknown as LovelaceCardConfig)).toThrow('Invalid configuration');
+    expect(() =>
+      instance.setConfig(null as unknown as LovelaceCardConfig)
+    ).toThrow('Invalid configuration');
   });
 });
