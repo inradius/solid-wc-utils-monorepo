@@ -62,3 +62,16 @@ jobs:
         with:
           working-directory: packages/${{ matrix.package }}
           name: ${{ matrix.package }}
+
+  check-tests:
+    name: All Tests Passed
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check Matrix Results
+        run: |
+          if [[ "${{ needs.test.result }}" != "success" ]]; then
+            echo "One or more test matrix jobs failed."
+            exit 1
+          fi
