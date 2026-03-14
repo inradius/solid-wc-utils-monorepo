@@ -1,5 +1,5 @@
-import type { Linter } from 'eslint';
 import eslint from '@eslint/js';
+import type { Linter } from 'eslint';
 import prettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import importPlugin from 'eslint-plugin-import-x';
@@ -50,7 +50,27 @@ export default defineConfig(
   },
   {
     rules: {
-      'perfectionist/sort-imports': 'off',
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          customGroups: [
+            {
+              elementNamePattern: '^@inradius/',
+              groupName: 'inradius',
+            },
+          ],
+          groups: [
+            'builtin',
+            'external',
+            'inradius',
+            ['parent', 'sibling', 'index'],
+            'style',
+            'side-effect-style',
+            'unknown',
+          ],
+          newlinesBetween: 0,
+        },
+      ],
     },
   },
   prettier,

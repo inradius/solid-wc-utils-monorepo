@@ -1,6 +1,6 @@
+import type { ComponentType } from 'component-register';
 import withHomeAssistant from './index';
 import type { LovelaceCardConfig } from './types';
-import type { ComponentType } from 'component-register';
 
 type CustomWindow = { customCards: unknown[] } & Window;
 
