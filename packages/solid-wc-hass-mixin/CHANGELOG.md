@@ -1,5 +1,12 @@
 # @inradius/solid-wc-hass-mixin
 
+## 0.0.4
+
+### Patch Changes
+
+- 356021d: Add customCards proto pollution sanitization
+- 66e3ded: Separate interfaces from core mixin
+
 ## 0.0.3
 
 ### Patch Changes
