@@ -8,6 +8,7 @@
     "url": "git+https://github.com/inradius/solid-wc-utils-monorepo.git",
     "directory": "packages/solid-wc-hass-mixin"
   },
+  "homepage": "https://github.com/inradius/solid-wc-utils-monorepo/tree/main/packages/solid-wc-hass-mixin#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
