@@ -1,5 +1,5 @@
+import baseConfig from '@inradius/solid-wc-utils-config/vitest.base';
 import { defineConfig, mergeConfig } from 'vitest/config';
-import baseConfig from '../../vitest.config.base';
 
 export default mergeConfig(
   baseConfig,

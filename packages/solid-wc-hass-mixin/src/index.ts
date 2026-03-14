@@ -1,28 +1,9 @@
 import type { ComponentType } from 'component-register';
-
-export interface CustomCardEntry {
-  description: string;
-  name: string;
-  preview?: boolean;
-  type: string;
-}
-
-export interface HomeAssistantOptions {
-  cardSize?: number;
-  customCard: CustomCardEntry;
-  defaultConfig?: Record<string, unknown>;
-}
-
-export interface LovelaceCardConfig {
-  [key: string]: unknown;
-  type: string;
-}
-
-interface HomeAssistantElement extends HTMLElement {
-  config?: LovelaceCardConfig;
-  getCardSize(): number;
-  setConfig(config: LovelaceCardConfig): void;
-}
+import {
+  HomeAssistantElement,
+  HomeAssistantOptions,
+  LovelaceCardConfig,
+} from './types';
 
 const withHomeAssistant = (options: HomeAssistantOptions) => {
   const { cardSize = 3, customCard, defaultConfig = {} } = options;

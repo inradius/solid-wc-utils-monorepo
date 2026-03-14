@@ -5,27 +5,27 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
     },
     "lint": {
-      "dependsOn": []
+      "dependsOn": ["^build"]
     },
     "lint:fix": {
       "dependsOn": [],
       "cache": false
     },
     "test": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     },
     "test:watch": {
       "cache": false,
       "persistent": true
-    },
-    "clean": {
-      "cache": false
     }
   }
 }
