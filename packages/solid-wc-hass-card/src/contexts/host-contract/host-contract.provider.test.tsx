@@ -1,7 +1,6 @@
+import { HostContractProvider, useHostContractContext } from '@app/contexts';
 import { render } from '@solidjs/testing-library';
 import { Component } from 'solid-js';
-import { useHostContractContext } from './host-contract.context';
-import { HostContractProvider } from './host-contract.provider';
 
 const HostProviderTest: Component = () => {
   const { description, heading } = useHostContractContext();
