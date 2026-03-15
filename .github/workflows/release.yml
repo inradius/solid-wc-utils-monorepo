@@ -41,7 +41,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Deploy Solid WC to HACS Branch
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.changesets.outputs.published == 'true' || steps.changesets.outputs.hasChangesets == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         run: |
@@ -63,4 +63,4 @@ jobs:
             --target release/solid-wc-hass-card \
             --title "HACS Release v$VERSION" \
             --notes "Automated release for @inradius/solid-wc-hass-card version $VERSION" \
-            ./dist/qa/*.js ./hacs.json
+            ./dist/*.js ./dist/hacs.json
