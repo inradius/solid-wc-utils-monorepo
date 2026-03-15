@@ -1,5 +1,5 @@
 {
-  "name": "My Solid.js Card",
-  "filename": "solid-wc-hass-card.min.js",
+  "name": "My Solid.js Demo Card",
+  "filename": "solid-wc-hass-demo.min.js",
   "render_readme": true
 }

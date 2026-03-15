@@ -10,14 +10,14 @@ export default defineConfig((env) =>
       lib: {
         entry: resolve(__dirname, 'index.ts'),
         formats: ['iife'],
-        name: 'SolidWCHassCard',
+        name: 'SolidWCHassDemo',
       },
       outDir: resolve(__dirname, '..', '..', 'dist'),
       rollupOptions: {
         external: [/\.css$/],
         output: {
           assetFileNames: '[hash][extname]',
-          entryFileNames: `solid-wc-hass-card.min.js`,
+          entryFileNames: 'solid-wc-hass-demo.min.js',
         },
       },
     },

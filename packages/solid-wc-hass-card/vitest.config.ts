@@ -12,7 +12,7 @@ export default mergeConfig(
     },
     test: {
       coverage: {
-        exclude: ['builds/**/*'],
+        exclude: ['builds/**/*', 'src/constants/index.ts'],
       },
       name: '@inradius/solid-wc-hass-card',
     },

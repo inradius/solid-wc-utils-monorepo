@@ -40,10 +40,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Deploy Solid WC to HACS Branch
+      - name: Deploy HACS Release
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         run: |
+          DEMO="solid-wc-hass-demo"
           PKG_DIR="packages/solid-wc-hass-card"
           VERSION=$(node -p "require('./$PKG_DIR/package.json').version")
           PREV_VERSION=$(git show HEAD~1:$PKG_DIR/package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version" 2>/dev/null || echo "0.0.0")
@@ -54,19 +55,19 @@ jobs:
           fi
 
           echo "Version changed: $PREV_VERSION -> $VERSION"
-          TAG_NAME="hacs-v$VERSION"
+          TAG_NAME="$DEMO-v$VERSION"
 
           pnpm build --filter=@inradius/solid-wc-hass-card...
 
           (
             cd $PKG_DIR/dist
             git init
-            git checkout -b release/solid-wc-hass-card
+            git checkout -b releases/$DEMO
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add .
             git commit -m "release: @inradius/solid-wc-hass-card v$VERSION"
-            git push --force https://x-access-token:${{ secrets.CHANGESETS_TOKEN }}@github.com/${{ github.repository }}.git release/solid-wc-hass-card
+            git push --force https://x-access-token:${{ secrets.CHANGESETS_TOKEN }}@github.com/${{ github.repository }}.git releases/$DEMO
           )
 
           gh release create "$TAG_NAME" \
