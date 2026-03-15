@@ -10,7 +10,11 @@ const AppCore: Component = () => {
   const { config, description, hass, heading } = useHostContractContext();
 
   createEffect(() => {
-    console.log('Home Assistant', config && config(), hass && hass());
+    console.log(
+      'Solid.js HACS Web Component v__VERSION__',
+      config && config(),
+      hass && hass()
+    );
   });
 
   return (

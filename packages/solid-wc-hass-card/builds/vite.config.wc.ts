@@ -1,4 +1,5 @@
 import { defineConfig, mergeConfig } from 'vite';
+import { replaceCodePlugin } from 'vite-plugin-replace';
 import { version } from '../package.json';
 import viteConfig from '../vite.config';
 
@@ -22,5 +23,15 @@ export default defineConfig((env) =>
         },
       },
     },
+    plugins: [
+      replaceCodePlugin({
+        replacements: [
+          {
+            from: '__VERSION__',
+            to: version,
+          },
+        ],
+      }),
+    ],
   })
 );

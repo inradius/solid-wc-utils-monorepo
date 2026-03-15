@@ -126,6 +126,9 @@ importers:
       vite-plugin-dts:
         specifier: ^4.0.0
         version: 4.5.4(@types/node@22.19.15)(rollup@4.59.0)(typescript@5.9.3)(vite@5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0))
+      vite-plugin-replace:
+        specifier: ^0.1.1
+        version: 0.1.1(vite@5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0))
       vite-plugin-solid:
         specifier: 2.11.10
         version: 2.11.10(@testing-library/jest-dom@6.9.1)(solid-js@1.9.11)(vite@5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0))
@@ -3271,6 +3274,11 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
+
+  vite-plugin-replace@0.1.1:
+    resolution: {integrity: sha512-v+okl3JNt2pf1jDYijw+WPVt6h9FWa/atTi+qnSFBqmKThLTDhlesx0r3bh+oFPmxRJmis5tNx9HtN6lGFoqWg==}
+    peerDependencies:
+      vite: ^2
 
   vite-plugin-solid@2.11.10:
     resolution: {integrity: sha512-Yr1dQybmtDtDAHkii6hXuc1oVH9CPcS/Zb2jN/P36qqcrkNnVPsMTzQ06jyzFPFjj3U1IYKMVt/9ZqcwGCEbjw==}
@@ -6849,6 +6857,10 @@ snapshots:
       - '@types/node'
       - rollup
       - supports-color
+
+  vite-plugin-replace@0.1.1(vite@5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0)):
+    dependencies:
+      vite: 5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0)
 
   vite-plugin-solid@2.11.10(@testing-library/jest-dom@6.9.1)(solid-js@1.9.11)(vite@5.4.21(@types/node@22.19.15)(lightningcss@1.31.1)(terser@5.46.0)):
     dependencies:
