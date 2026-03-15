@@ -54,10 +54,50 @@ jobs:
       - name: Run Changed Packages
         run: pnpm exec turbo run build test --filter=[origin/main]
 
-      - name: Report Combined Coverage
+      - name: Merge Coverage Reports
+        id: merge-coverage
         if: always()
+        run: |
+          COVERAGE_FILES=$(find packages -name "coverage-summary.json" -path "*/coverage/*" 2>/dev/null || true)
+          if [ -z "$COVERAGE_FILES" ]; then
+            echo "No coverage files found, skipping."
+            echo "has_coverage=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_coverage=true" >> "$GITHUB_OUTPUT"
+          node --input-type=module << 'EOF'
+          import { globSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+          const finalFiles = globSync('packages/*/coverage/coverage-final.json');
+          const mergedFinal = {};
+          for (const f of finalFiles) Object.assign(mergedFinal, JSON.parse(readFileSync(f, 'utf8')));
+          const summaryFiles = globSync('packages/*/coverage/coverage-summary.json');
+          const mergedSummary = {};
+          for (const f of summaryFiles) {
+            const s = JSON.parse(readFileSync(f, 'utf8'));
+            for (const [key, val] of Object.entries(s)) { if (key !== 'total') mergedSummary[key] = val; }
+          }
+          const metrics = ['lines', 'statements', 'functions', 'branches'];
+          const fileEntries = Object.values(mergedSummary);
+          const total = {};
+          for (const m of metrics) {
+            const agg = fileEntries.reduce(
+              (a, f) => f[m] ? { total: a.total + f[m].total, covered: a.covered + f[m].covered, skipped: a.skipped + (f[m].skipped ?? 0) } : a,
+              { total: 0, covered: 0, skipped: 0 }
+            );
+            agg.pct = agg.total > 0 ? Number(((agg.covered / agg.total) * 100).toFixed(2)) : 100;
+            total[m] = agg;
+          }
+          mergedSummary.total = total;
+          mkdirSync('coverage', { recursive: true });
+          writeFileSync('coverage/coverage-final.json', JSON.stringify(mergedFinal));
+          writeFileSync('coverage/coverage-summary.json', JSON.stringify(mergedSummary));
+          console.log('Merged ' + finalFiles.length + ' package(s) into ./coverage/');
+          EOF
+
+      - name: Report Combined Coverage
+        if: always() && steps.merge-coverage.outputs.has_coverage == 'true'
         uses: davelosert/vitest-coverage-report-action@v2
         with:
-          json-summary-path: ./packages/*/coverage/coverage-summary.json
-          json-final-path: ./packages/*/coverage/coverage-final.json
+          json-summary-path: ./coverage/coverage-summary.json
+          json-final-path: ./coverage/coverage-final.json
           threshold-icons: "{0: '🔴', 50: '🟠', 70: '🟡', 80: '🔵', 100: '🟢'}"
