@@ -39,3 +39,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deploy Solid WC to HACS Branch
+        if: steps.changesets.outputs.published == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        run: |
+          pnpm build --filter=@inradius/solid-wc-hass-card...
+
+          PKG_DIR="packages/solid-wc-hass-card"
+          VERSION=$(node -p "require('./$PKG_DIR/package.json').version")
+          TAG_NAME="hacs-v$VERSION"
+
+          cd $PKG_DIR
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "release: @inradius/solid-wc-hass-card v$VERSION"
+          git push --force https://x-access-token:${{ secrets.CHANGESETS_TOKEN }}@github.com/${{ github.repository }}.git release/solid-wc-hass-card
+
+          gh release create "$TAG_NAME" \
+            --target release/solid-wc-hass-card \
+            --title "HACS Release v$VERSION" \
+            --notes "Automated release for @inradius/solid-wc-hass-card version $VERSION" \
+            ./dist/qa/*.js ./hacs.json

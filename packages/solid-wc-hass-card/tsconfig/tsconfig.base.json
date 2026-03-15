@@ -1,0 +1,10 @@
+{
+  "extends": "@inradius/solid-wc-utils-config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@app/": ["src/"],
+      "@app/*": ["src/*"]
+    }
+  }
+}

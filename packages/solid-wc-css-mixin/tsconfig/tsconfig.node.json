@@ -1,0 +1,4 @@
+{
+  "extends": "@inradius/solid-wc-utils-config/tsconfig.base.json",
+  "include": ["../vite.config.ts", "../vitest.config.ts"]
+}

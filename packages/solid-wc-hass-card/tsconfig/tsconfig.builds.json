@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "jsxImportSource": "solid-js",
+    "noEmit": true,
+    "types": ["vite/client"]
+  },
+  "include": ["../builds/app/index.tsx", "../builds/wc/index.ts"]
+}
