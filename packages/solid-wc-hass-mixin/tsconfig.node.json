@@ -1,7 +1,0 @@
-{
-  "extends": "@inradius/solid-wc-utils-config/tsconfig.base.json",
-  "compilerOptions": {
-    "composite": true
-  },
-  "include": ["vite.config.ts", "vitest.config.ts"]
-}
