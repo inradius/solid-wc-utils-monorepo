@@ -63,4 +63,4 @@ jobs:
             --target release/solid-wc-hass-card \
             --title "HACS Release v$VERSION" \
             --notes "Automated release for @inradius/solid-wc-hass-card version $VERSION" \
-            ./dist/*.js ./hacs.json
+            ./dist/*.js ./dist/hacs.json
