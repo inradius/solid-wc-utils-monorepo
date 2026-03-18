@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-mixin
 
+## 1.0.0
+
+### Major Changes
+
+- ed4803d: Add README and package updates
+
 ## 0.0.4
 
 ### Patch Changes
