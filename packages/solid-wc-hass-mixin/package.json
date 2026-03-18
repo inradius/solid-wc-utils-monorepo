@@ -1,8 +1,18 @@
 {
   "name": "@inradius/solid-wc-hass-mixin",
-  "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
   "version": "0.0.4",
+  "license": "MIT",
+  "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
   "description": "A Solid.js Home Assistant web component mixin.",
+  "keywords": [
+    "custom-elements",
+    "hass",
+    "home-assistant",
+    "mixin",
+    "solid",
+    "solidjs",
+    "web-components"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inradius/solid-wc-utils-monorepo.git",
@@ -45,5 +55,7 @@
   "peerDependencies": {
     "component-register": "^0.8.0"
   },
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  }
 }
