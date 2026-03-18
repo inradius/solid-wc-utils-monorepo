@@ -1,5 +1,11 @@
 # @inradius/solid-wc-css-mixin
 
+## 1.0.1
+
+### Patch Changes
+
+- ed4803d: Add README and package updates
+
 ## 1.0.0
 
 ### Major Changes
