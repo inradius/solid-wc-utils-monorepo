@@ -1,4 +1,4 @@
-# @inradius/solid-wc-hass-mixin
+# @inradius/solid-wc-css-mixin
 ![npm version](https://img.shields.io/npm/v/@inradius/solid-wc-css-mixin) ![license](https://img.shields.io/npm/l/@inradius/solid-wc-css-mixin)
 
 A lightweight mixin for [component-register](https://www.npmjs.com/package/component-register) that allows you to inject computed or inlined CSS directly into a Web Component's **Shadow Root** using Constructable Stylesheets.
