@@ -1,6 +1,7 @@
 import type { Config } from 'prettier';
 
 const config: Config = {
+  endOfLine: 'lf',
   printWidth: 80,
   semi: true,
   singleQuote: true,
