@@ -1,6 +1,6 @@
 {
   "name": "@inradius/solid-wc-css-mixin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
   "description": "A Solid.js CSS web component mixin.",
