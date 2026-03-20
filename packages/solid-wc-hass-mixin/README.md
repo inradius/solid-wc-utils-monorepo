@@ -1,5 +1,5 @@
 # @inradius/solid-wc-hass-mixin
-![npm version](https://img.shields.io/npm/v/@inradius/solid-wc-hass-mixin) ![license](https://img.shields.io/npm/l/@inradius/solid-wc-hass-mixin)
+![npm version](https://img.shields.io/npm/v/@inradius/solid-wc-hass-mixin) ![CI Action](https://github.com/inradius/solid-wc-utils-monorepo/actions/workflows/ci.yml/badge.svg) ![license](https://img.shields.io/npm/l/@inradius/solid-wc-hass-mixin)
 
 A lightweight mixin for [component-register](https://www.npmjs.com/package/component-register) that streamlines the creation of Home Assistant Custom Cards using Solid.js.
 
