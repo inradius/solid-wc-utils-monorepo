@@ -67,10 +67,11 @@ jobs:
             git add .
             git commit -m "release: @inradius/solid-wc-hass-card v$VERSION"
             git push --force https://x-access-token:${{ secrets.CHANGESETS_TOKEN }}@github.com/${{ github.repository }}.git releases/$DEMO
+            sleep 5
           )
 
           gh release create "$TAG_NAME" \
-            --target release/solid-wc-hass-card \
+            --target releases/$DEMO \
             --title "HACS Release v$VERSION" \
             --notes "Automated release for @inradius/solid-wc-hass-card version $VERSION" \
             ./$PKG_DIR/dist/*.js ./$PKG_DIR/dist/hacs.json
