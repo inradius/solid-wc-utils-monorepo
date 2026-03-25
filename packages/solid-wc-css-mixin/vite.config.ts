@@ -9,7 +9,7 @@ export default defineConfig({
       fileName: 'index',
       formats: ['es', 'cjs'],
     },
-    minify: 'esbuild',
+    minify: false,
     rollupOptions: {
       external: ['component-register'],
     },
