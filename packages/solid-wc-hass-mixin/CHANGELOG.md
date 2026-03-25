@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-mixin
 
+## 1.0.1
+
+### Patch Changes
+
+- 45e5edd: Build packages unminified for security audits
+
 ## 1.0.0
 
 ### Major Changes

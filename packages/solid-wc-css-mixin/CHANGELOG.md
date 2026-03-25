@@ -1,5 +1,11 @@
 # @inradius/solid-wc-css-mixin
 
+## 1.0.3
+
+### Patch Changes
+
+- 45e5edd: Build packages unminified for security audits
+
 ## 1.0.2
 
 ### Patch Changes
