@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-card
 
+## 0.0.2
+
+### Patch Changes
+
+- 6bc9369: Wrap in ha-card wc and add dark mode support
+
 ## 0.0.1
 
 ### Patch Changes
