@@ -1,6 +1,6 @@
 {
   "name": "@inradius/solid-wc-utils-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
   "description": "Shared ESLint, Prettier, TypeScript, and Vitest configuration for @inradius packages.",

@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-card
 
+## 0.0.3
+
+### Patch Changes
+
+- 92ae1a6: Publish @inradius/solid-wc-utils-config package for Solid.js based web component applications
+
 ## 0.0.2
 
 ### Patch Changes
