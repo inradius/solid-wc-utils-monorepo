@@ -4,10 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm build:app:solid && pnpm build:app:wc",
-    "build:app:solid": "vite build builds/app",
-    "build:app:wc": "vite build builds/wc",
-    "clean": "rimraf dist",
+    "build": "vite build builds/wc",
     "dev": "vite builds/app --host --open",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
