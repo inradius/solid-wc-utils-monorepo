@@ -68,10 +68,16 @@ All ESLint plugins are bundled as dependencies — consumers do not need to inst
 
 > **Note:** The ESLint config includes `eslint-plugin-solid`, making it opinionated toward Solid.js projects.
 
+> **⚠️ ESLint 10 compatibility:** `eslint-plugin-solid` depends on `@typescript-eslint/utils@8.x`,
+> which does not yet support ESLint 10. This package pins its ESLint peer dependency to **^9.20.0**
+> until upstream support lands. Track progress in
+> [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid) and
+> [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint).
+
 ## Requirements
 
 - **Node.js** `^20.19.0 || >=22`
-- **ESLint** `^10.0.0`
+- **ESLint** `^9.20.0`
 - **Prettier** `^3.0.0`
 - **TypeScript** `^5.0.0`
 
