@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-mixin
 
+## 1.0.3
+
+### Patch Changes
+
+- 575318d: Fix issue with vitest config by building as .js + .d.ts
+
 ## 1.0.2
 
 ### Patch Changes

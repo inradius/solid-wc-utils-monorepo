@@ -1,5 +1,11 @@
 # @inradius/solid-wc-hass-card
 
+## 0.0.4
+
+### Patch Changes
+
+- 575318d: Fix issue with vitest config by building as .js + .d.ts
+
 ## 0.0.3
 
 ### Patch Changes
