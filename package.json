@@ -21,7 +21,7 @@
     "@changesets/cli": "^2.29.8",
     "@inradius/solid-wc-utils-config": "workspace:*",
     "@vitest/ui": "^2.1.9",
-    "eslint": "^10.0.3",
+    "eslint": "^9.20.0",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
     "turbo": "^2.8.17",
