@@ -59,4 +59,4 @@ The `withHomeAssistant` function accepts an options object:
 3. Global Registry: Adds your card to `window.customCards` so it appears in the "Add Card" dialog in the Lovelace UI.
 
 ## License
-MIT © Travis
+MIT

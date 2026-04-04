@@ -5,7 +5,7 @@ import { compose, register } from 'component-register';
 import { withSolid } from 'solid-element';
 import withCSS from '@inradius/solid-wc-css-mixin';
 import withHomeAssistant from '@inradius/solid-wc-hass-mixin';
-import css from '@dist/dev/index.css?inline';
+import css from '@app/index.css?inline';
 
 compose(
   withHomeAssistant({

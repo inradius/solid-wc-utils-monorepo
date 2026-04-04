@@ -45,4 +45,4 @@ The mixin creates a new `CSSStyleSheet` object and pushes it into the element's 
 - **Peer Dependencies:** This package is designed to be used with `component-register`.
 
 ## License
-MIT © Travis
+MIT

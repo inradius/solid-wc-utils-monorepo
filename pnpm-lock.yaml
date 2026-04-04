@@ -174,15 +174,12 @@ importers:
         version: 2.1.9(@types/node@22.19.15)(@vitest/ui@2.1.9)(happy-dom@15.11.7)(jsdom@28.1.0)(lightningcss@1.31.1)(terser@5.46.0)
 
   packages/solid-wc-utils-config:
-    devDependencies:
+    dependencies:
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.0.3(jiti@2.6.1))
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
       eslint:
-        specifier: ^10.0.3
+        specifier: ^10.0.0
         version: 10.0.3(jiti@2.6.1)
       eslint-config-prettier:
         specifier: ^10.1.8
@@ -203,14 +200,18 @@ importers:
         specifier: ^17.4.0
         version: 17.4.0
       prettier:
-        specifier: ^3.8.1
+        specifier: ^3.0.0
         version: 3.8.1
       typescript:
-        specifier: ^5.9.3
+        specifier: ^5.0.0
         version: 5.9.3
       typescript-eslint:
         specifier: ^8.57.0
         version: 8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
+    devDependencies:
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
 
 packages:
 
