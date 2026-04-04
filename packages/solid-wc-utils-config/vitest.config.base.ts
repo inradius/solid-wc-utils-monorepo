@@ -1,9 +1,11 @@
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
+    clearMocks: true,
     coverage: {
-      exclude: [
+      enabled: true,
+      exclude: configDefaults.coverage.exclude!.concat([
         'node_modules/**',
         'dist/**',
         '**/*.config.*',
@@ -12,7 +14,8 @@ export default defineConfig({
         '**/__tests__/**',
         '**/*.test.ts',
         '**/*.spec.ts',
-      ],
+        '**/*.stories.*',
+      ]),
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
       thresholds: {
@@ -24,5 +27,6 @@ export default defineConfig({
     },
     environment: 'jsdom',
     globals: true,
+    include: configDefaults.include,
   },
 });
