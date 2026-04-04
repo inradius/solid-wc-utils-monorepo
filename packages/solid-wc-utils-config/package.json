@@ -1,6 +1,6 @@
 {
   "name": "@inradius/solid-wc-utils-config",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
   "description": "Shared ESLint, Prettier, and Vitest configuration for Solid.js web component applications.",

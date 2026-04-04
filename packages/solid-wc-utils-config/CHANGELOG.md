@@ -1,5 +1,11 @@
 # @inradius/solid-wc-utils-config
 
+## 0.1.3
+
+### Patch Changes
+
+- 575318d: Fix issue with vitest config by building as .js + .d.ts
+
 ## 0.1.2
 
 ### Patch Changes
