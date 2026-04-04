@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "license": "MIT",
   "author": "Travis Stroud <travis.unfasten577@travisstroud.me>",
-  "description": "Shared ESLint, Prettier, TypeScript, and Vitest configuration for @inradius packages.",
+  "description": "Shared ESLint, Prettier, and Vitest configuration for Solid.js web component applications.",
   "keywords": [
     "eslint",
     "eslint-config",
@@ -25,15 +25,20 @@
   "exports": {
     "./eslint": "./eslint.config.ts",
     "./prettier": "./prettier.config.ts",
-    "./tsconfig.base.json": "./tsconfig.base.json",
-    "./vitest.base": "./vitest.config.base.ts"
+    "./vitest.base": {
+      "types": "./dist/vitest.config.base.d.ts",
+      "import": "./dist/vitest.config.base.js"
+    }
   },
   "files": [
+    "dist",
     "eslint.config.ts",
-    "prettier.config.ts",
-    "tsconfig.base.json",
-    "vitest.config.base.ts"
+    "prettier.config.ts"
   ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rimraf dist"
+  },
   "dependencies": {
     "@eslint/js": "^9.20.0",
     "eslint-config-prettier": "^10.1.8",
@@ -50,7 +55,8 @@
   "peerDependencies": {
     "eslint": "^9.20.0",
     "prettier": "^3.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"
