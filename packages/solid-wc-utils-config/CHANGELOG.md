@@ -1,5 +1,11 @@
 # @inradius/solid-wc-utils-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 356b2a3: Fixes an issue with prematurely pinning peerDependency on ESLint 10
+
 ## 0.1.1
 
 ### Patch Changes
