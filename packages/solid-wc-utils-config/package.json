@@ -20,6 +20,9 @@
     "url": "git+https://github.com/inradius/solid-wc-utils-monorepo.git",
     "directory": "packages/solid-wc-utils-config"
   },
+  "bugs": {
+    "url": "https://github.com/inradius/solid-wc-utils-monorepo/issues"
+  },
   "homepage": "https://github.com/inradius/solid-wc-utils-monorepo/tree/main/packages/solid-wc-utils-config#readme",
   "type": "module",
   "exports": {
@@ -53,10 +56,29 @@
     "@types/eslint": "^9.6.1"
   },
   "peerDependencies": {
+    "@vitest/coverage-v8": ">=1.0.0",
     "eslint": "^9.20.0",
+    "jsdom": ">=20.0.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
-    "vitest": "^2.0.0"
+    "vitest": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vitest/coverage-v8": {
+      "optional": true
+    },
+    "jsdom": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    },
+    "vitest": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22"
   },
   "publishConfig": {
     "access": "public"
