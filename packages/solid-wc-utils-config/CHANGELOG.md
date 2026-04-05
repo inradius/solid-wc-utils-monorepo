@@ -1,5 +1,11 @@
 # @inradius/solid-wc-utils-config
 
+## 0.1.4
+
+### Patch Changes
+
+- 7c806b6: Improved peerDependencies and peerDependenciesMeta for cunsumers
+
 ## 0.1.3
 
 ### Patch Changes
